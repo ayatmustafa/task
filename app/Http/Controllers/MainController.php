@@ -12,7 +12,7 @@ class MainController extends Controller
     {
         try {
             $class_name = 'App\\Http\\Controllers\\'.trim(ucfirst(strtolower($class_name)));
-            $class_obj = new $class_name;
+            $class_obj = app()->make($class_name);
                 return Response::json([
                     'success' => true,
                     "class_name"=>$class_obj->getClassName()
