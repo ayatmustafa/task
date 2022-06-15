@@ -12,8 +12,7 @@ class MainController extends Controller
     {
             $class_name = 'App\\Http\\Controllers\\'.trim(ucfirst(strtolower($class_name)));
             if(class_exists($class_name)){
-            $class_obj = app()->make($class_name);
-            app()->bound($class_name);
+                $class_obj = app()->make($class_name);
                 return Response::json([
                     'success' => true,
                     "class_name"=>$class_obj->callAction('getClassName',[])
